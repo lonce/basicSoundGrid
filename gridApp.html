@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<! -------------------------------------------------------------------------->
+<! This is the  "configuration" for your grid -->
+<! IOI is the time in ms between each sound when played in a sequence -->
+<! This file2string will get called for row in range(0, rows) and cols in range(0, cols)
+    and allows you to map grid element (row, col) to sounds in your path. 
+    The formulas inside the string templates ${} get evaluated -->
+<div id="config"
+  data-rows="3"
+  data-cols="4"
+  data-ioi="1000"
+  data-file2string="`gridAppFiles/demoSndDir/test_2D4pt_d1.${2*col}_d0.${2*row}_v.0.wav`"
+</div>
+
+<! -------------------------------------------------------------------------->
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="gridAppFiles/css/appstyle.css">
+        <title>flexbox layout</title>
+        <script defer type="text/javascript" src="gridAppFiles/appscripts/main.js">
+        </script>
+    </head>
+  <body id="body">
+  	<h2 id="title" > gridApp Demo </h2> 
+    <div id="container">
+    </div>
+    <div id=footer>
+        Click one to play one. Click and drag to create a path. Click a path to play it. Shift-click to add one elmt to a path, CTL-click to remove one elmt from path. ESC or click body to clear a path. 
+    </div>
+
+</body>
+</html>
+

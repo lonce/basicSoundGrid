@@ -5,22 +5,26 @@
 //==========================================================
 //==========================================================
 // Only need to change code here  vvvvvvvvvvvvvvvvvvvvvvvvvv
+config=document.getElementById("config")
+console.log(config)
 
 // Each cell at (row, col) will have a sound file attached to it.
 // rowRows*numCols should be the number of files you have in the resources folder.
-const numRows=4
-const numCols=3
+const numRows=parseInt(config.dataset.rows)
+const numCols=parseInt(config.dataset.cols)
 
 // inter onset interval between sound onsets in a sequence,
 // if it is equal to your sound file duration, there will be no space between them
 // const IOI = 743 // ms, 
-const IOI = 743// ms, 
+const IOI = parseInt(config.dataset.ioi) // ms, 
+console.log("IOI is " + IOI)
 
 let makefnamestring=function(row,col){
 	// map (row, col) to file names
-	let r=2*row;
-	let c=2*col;
-	return `resources/test_2D4pt_d1.${r}_d0.${c}_v.0.wav`
+	fstring=config.dataset.file2string
+	console.log(`row[${row}], col[${col}] plays  ${eval(fstring)}`)
+	return eval(fstring)
+	//return `resources/test_2D4pt_d1.${2*r}_d0.${2*c}_v.0.wav`
 }
 
 // Only need to change code above ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,7 +86,7 @@ let makeGrid = function(rows, cols) {
 					addToPlaylist(ev.target)
 	    			ev.target.style.backgroundColor= "#FFF";
 	    		} else {         // else start a new playlist
-			    	console.log(`fname: ${ev.target.fname}`)
+			    	//console.log(`fname: ${ev.target.fname}`)
 			    	clearPlaylist()
 			    	addToPlaylist(ev.target)
 			    	dragging=true;
